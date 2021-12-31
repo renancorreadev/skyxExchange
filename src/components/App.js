@@ -60,7 +60,7 @@ class App extends Component {
               <h2
                 style={{ color: "white", fontWeight: "bold", padding: "18px" }}
               >
-                Please Connect on Kovan Network
+                Please Connect on Kovan Network!!
               </h2>
             </div>
           </div>
