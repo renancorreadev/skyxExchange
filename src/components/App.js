@@ -43,27 +43,7 @@ class App extends Component {
         {this.props.contractsLoaded ? (
           <Content />
         ) : (
-          <div className="content">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "140px",
-                width: "440px",
-                position: "relative",
-                marginTop: "120px",
-                borderRadius: "15px",
-                backgroundColor: "blue",
-              }}
-            >
-              <h2
-                style={{ color: "white", fontWeight: "bold", padding: "18px" }}
-              >
-                Please Connect on Kovan Network
-              </h2>
-            </div>
-          </div>
+          <div className="content"></div>
         )}
       </div>
     );
