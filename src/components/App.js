@@ -1,38 +1,38 @@
-import React, { Component } from "react";
-import "./App.css";
-import Navbar from "./Navbar";
-import Content from "./Content";
-import { connect } from "react-redux";
+import React, { Component } from 'react'
+import './App.css'
+import Navbar from './Navbar'
+import Content from './Content'
+import { connect } from 'react-redux'
 import {
   loadWeb3,
   loadAccount,
   loadToken,
   loadExchange,
-} from "../store/interactions";
-import { contractsLoadedSelector } from "../store/selectors";
+} from '../store/interactions'
+import { contractsLoadedSelector } from '../store/selectors'
 
 class App extends Component {
   componentWillMount() {
-    this.loadBlockchainData(this.props.dispatch);
+    this.loadBlockchainData(this.props.dispatch)
   }
 
   async loadBlockchainData(dispatch) {
-    const web3 = await loadWeb3(dispatch);
-    const networkId = await web3.eth.net.getId();
-    await loadAccount(web3, dispatch);
-    const token = await loadToken(web3, networkId, dispatch);
+    const web3 = await loadWeb3(dispatch)
+    const networkId = await web3.eth.net.getId()
+    await loadAccount(web3, dispatch)
+    const token = await loadToken(web3, networkId, dispatch)
     if (!token) {
       window.alert(
-        "Token smart contract not detected on the current network. Please select another network with Metamask."
-      );
-      return;
+        'Token smart contract not detected on the current network. Please select another network with Metamask.',
+      )
+      return
     }
-    const exchange = await loadExchange(web3, networkId, dispatch);
+    const exchange = await loadExchange(web3, networkId, dispatch)
     if (!exchange) {
       window.alert(
-        "Exchange smart contract not detected on the current network. Please select another network with Metamask."
-      );
-      return;
+        'Exchange smart contract not detected on the current network. Please select another network with Metamask.',
+      )
+      return
     }
   }
 
@@ -46,34 +46,34 @@ class App extends Component {
           <div className="content">
             <div
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "140px",
-                width: "440px",
-                position: "relative",
-                marginTop: "120px",
-                borderRadius: "15px",
-                backgroundColor: "blue",
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '140px',
+                width: '440px',
+                position: 'relative',
+                marginTop: '120px',
+                borderRadius: '15px',
+                backgroundColor: 'black',
               }}
             >
               <h2
-                style={{ color: "white", fontWeight: "bold", padding: "18px" }}
+                style={{ color: 'white', fontWeight: 'bold', padding: '18px' }}
               >
-                Please Connect on Kovan Network!!
+                Please Connect on BSC Testnet or Kovan Network!!
               </h2>
             </div>
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
 function mapStateToProps(state) {
   return {
     contractsLoaded: contractsLoadedSelector(state),
-  };
+  }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)
