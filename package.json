@@ -4,7 +4,7 @@
   "description": "Decentralized Ethereum Token Exchange",
   "author": "skyxcripto",
   "private": false,
-  "homepage": ".",
+  "homepage": "https://exchange.skyxcripto.com/",
   "dependencies": {
     "@truffle/hdwallet-provider": "1.1.0",
     "apexcharts": "3.6.3",
